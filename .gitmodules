@@ -7,3 +7,4 @@
 [submodule "xmobar-git"]
 	path = .config/xmonad/xmobar-git
 	url = https://github.com/jaor/xmobar
+
