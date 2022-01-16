@@ -25,11 +25,20 @@ activateHook = mconcat
 
 myManageHook :: ManageHook
 myManageHook = composeAll
-    [ className =? "discord" --> doShift ( myWorkspaces !! 3 )
+    [ className =? "Thunderbird"   --> doShift ( head myWorkspaces )
+    , className =? "Brave-browser" --> doShift ( head myWorkspaces )
+
+    , className =? "Virt-manager" --> doShift ( myWorkspaces !! 3 )
+
     , className =? "mpv"     --> doShift ( myWorkspaces !! 4 )
 
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore
+
+    , className =? "discord"      --> doFloat
+    , className =? "Virt-manager" --> doFloat
+    , className =? "Thunderbird"  --> doFloat
+    , className =? "Thunar"       --> doFloat
 
     , isFullscreen --> doFullFloat
     ] <+> namedScratchpadManageHook myScratchPads

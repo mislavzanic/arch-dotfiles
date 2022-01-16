@@ -47,14 +47,14 @@
 ;(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
 (setq fancy-splash-image "~/.config/doom/doom.png")
-(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
-(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-footer)
-(remove-hook '+doom-dashboard-functions #'+doom-dashboard-widget-banner)
+;;(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
+;;(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-footer)
+;;(remove-hook '+doom-dashboard-functions #'+doom-dashboard-widget-banner)
 (setq +doom-dashboard-banner-file (expand-file-name "doom.png" doom-private-dir)
       +doom-dashboard-banner-dir  "~/.emacs.d/modules/ui/doom-dashboard/")
 (setq doom-theme 'kaolin-aurora)
 
-(setq doom-font (font-spec :family "JetBrains Mono" :size 13 )
+(setq doom-font (font-spec :family "Ubuntu Mono" :size 15)
       doom-variable-pitch-font (font-spec :family "Ubuntu" :size 13)
       doom-big-font (font-spec :family "JetBrains Mono" :size 24))
 (after! doom-themes

@@ -41,15 +41,15 @@ scrolling:
 
 font:
   normal:
-    family: mono
+    family: Ubuntu Mono
 
   bold:
-    family: mono 
+    family: Ubuntu Mono
 
   italic:
-    family: mono
+    family: Ubuntu Mono
 
-  size: 10
+  size: 11
 
   offset:
     x: 0

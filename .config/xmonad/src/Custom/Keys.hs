@@ -130,6 +130,10 @@ appKeys =
   , ("M1-d", spawn "discord")
   , ("M1-w", spawn "virt-manager")
   , ("M1-s", spawn "screen sel")
+  , ("M1-l", spawn muhLock)
+  , ("M1-t", spawn "thunderbird")
+  , ("M1-f", spawn "Thunar")
+  , ("M1-S-p", spawn "toggle_comp.sh")
 
   , ("M-S-w", spawn "sxiv -r -q -t -o ~/.local/share/wall/*")
 

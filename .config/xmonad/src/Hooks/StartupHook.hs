@@ -15,7 +15,8 @@ myStartupHook = do
   spawn     ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ trayerColor ++ " --height 22 &")
 
   spawnOnce "dunst &"
-  spawnOnce "xcompmgr &"
+  -- spawnOnce "xcompmgr &"
+  spawnOnce "compton &"
   spawnOnce "nm-applet &"
   spawnOnce "unclutter &"
   spawnOnce "xsetroot -cursor_name left_ptr &"

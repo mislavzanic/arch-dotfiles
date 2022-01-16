@@ -15,7 +15,7 @@ HISTFILE=~/.cache/zsh/history
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 
-se() { find ~/.local/bin/scripts ~/.config | fzf | xargs -r $EDITOR ;}
+se() { find ~/.local/bin/scripts ~/.config | fzf | xargs -r nvim ;}
 get_creds() { grep password ~/.local/mzanic_VPN/credentials.txt | awk '{print $2}' | xclip -selection clipboard ;}
 
 # Enable colors and change prompt:
@@ -56,4 +56,4 @@ bindkey '^E' edit-command-line
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-                        
+eval "$(starship init zsh)"
