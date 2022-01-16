@@ -1,0 +1,9 @@
+[submodule "xmonad-git"]
+	path = .config/xmonad/xmonad-git
+	url = https://github.com/xmonad/xmonad
+[submodule "xmonad-contrib-git"]
+	path = .config/xmonad/xmonad-contrib-git
+	url = https://github.com/xmonad/xmonad-contrib
+[submodule "xmobar-git"]
+	path = .config/xmonad/xmobar-git
+	url = https://github.com/jaor/xmobar

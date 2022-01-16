@@ -1,0 +1,79 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           mexmonad
+version:        69
+synopsis:       XMonad Rocks!
+author:         Mislav Zanic
+maintainer:     mislavzanic3@gmail.com
+license:        MIT
+build-type:     Simple
+
+executable xmobar
+  main-is: xmobar.hs
+  other-modules:
+      Custom.Keys
+      Custom.Layouts
+      Custom.Prompt
+      Custom.Scratchpads
+      Custom.TreePrompt
+      Custom.Utils
+      Custom.Vars
+      Hooks.ManageHook
+      Hooks.StartupHook
+      Hooks.StatusBar
+      Paths_mexmonad
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2 -rtsopts -threaded -with-rtsopts=-N
+  build-depends:
+      X11
+    , base
+    , containers
+    , directory
+    , filepath
+    , libmpd
+    , process
+    , time
+    , unix
+    , utf8-string
+    , xmobar
+    , xmonad
+    , xmonad-contrib
+  default-language: Haskell2010
+
+executable xmonad
+  main-is: xmonad.hs
+  other-modules:
+      Custom.Keys
+      Custom.Layouts
+      Custom.Prompt
+      Custom.Scratchpads
+      Custom.TreePrompt
+      Custom.Utils
+      Custom.Vars
+      Hooks.ManageHook
+      Hooks.StartupHook
+      Hooks.StatusBar
+      Paths_mexmonad
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      X11
+    , base
+    , containers
+    , directory
+    , filepath
+    , libmpd
+    , process
+    , time
+    , unix
+    , utf8-string
+    , xmobar
+    , xmonad
+    , xmonad-contrib
+  default-language: Haskell2010
