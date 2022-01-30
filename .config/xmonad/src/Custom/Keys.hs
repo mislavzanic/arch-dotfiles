@@ -121,8 +121,8 @@ appKeys =
 
   , ("M-S-c", kill)
 
-  , ("M1-]", spawn "pamixer -i 5")
-  , ("M1-[", spawn "pamixer -d 5")
+  , ("M1-]", spawn "pamixer -i 5 && notify-send -u low -t 1500 $(pamixer --get-volume)")
+  , ("M1-[", spawn "pamixer -d 5 && notify-send -u low -t 1500 $(pamixer --get-volume)")
 
   , ("M1-b", spawn myBrowser)
   , ("M1-z", spawn myPDF)
@@ -133,6 +133,7 @@ appKeys =
   , ("M1-l", spawn muhLock)
   , ("M1-t", spawn "thunderbird")
   , ("M1-f", spawn "Thunar")
+  , ("M1-S-n", spawn "nvidia-settings")
   , ("M1-S-p", spawn "toggle_comp.sh")
 
   , ("M-S-w", spawn "sxiv -r -q -t -o ~/.local/share/wall/*")

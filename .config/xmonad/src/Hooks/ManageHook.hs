@@ -31,13 +31,16 @@ myManageHook = composeAll
     , className =? "Virt-manager" --> doShift ( myWorkspaces !! 3 )
 
     , className =? "mpv"     --> doShift ( myWorkspaces !! 4 )
+    , className =? "Steam"     --> doShift ( myWorkspaces !! 5 )
 
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore
 
     , className =? "discord"      --> doFloat
+    , className =? "Steam"      --> doFloat
     , className =? "Virt-manager" --> doFloat
     , className =? "Thunderbird"  --> doFloat
+    , className =? "Nvidia-settings"  --> doFloat
     , className =? "Thunar"       --> doFloat
 
     , isFullscreen --> doFullFloat

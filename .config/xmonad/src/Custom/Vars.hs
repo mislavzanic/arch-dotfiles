@@ -18,14 +18,14 @@ myEditor             :: String    = "emacsclient -c -a'emacs'"
 editCMD              :: String    = "emacsclient -c -n "
 myPDF                :: String    = "zathura"
 myBrowser            :: Browser   = "brave"
-muhLock              :: String    = "xlock"
+muhLock              :: String    = "slock"
 
-myFont               :: String    = "xft:Ubuntu Nerd Font:bold:size=9:antialias=true:hinting=true"
+myFont               :: String    = "xft:Ubuntu:bold:size=9:antialias=true:hinting=true"
 --myFont               :: String    = "xft:JetBrainsMono Nerd Font Mono:bold:size=9:antialias=true:hinting=true"
 
 myBorderWidth        :: Dimension = 2
 
-myWorkspaces         :: [String]  = ["www","dev","pdf","vrt","vid"]
+myWorkspaces         :: [String]  = ["www","dev","pdf","vrt","vid", "ply"]
 
 myConfigs :: [(String, String, String)]
 myConfigs = [ ("doom emacs config.org", editCMD ++ "~/.doom.d/config.org", "doom emacs config")

@@ -33,6 +33,8 @@ import XMonad.Actions.UpdatePointer (updatePointer)
 import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.NamedScratchpad
 
+import XMonad.Layout.NoBorders
+
 -- hooks
 import XMonad.Hooks.ManageDocks (manageDocks)
 import XMonad.Hooks.EwmhDesktops (ewmh, ewmhFullscreen, setEwmhActivateHook)
@@ -53,7 +55,7 @@ main = xmonad
         myConfig = desktopConfig
           { manageHook         = ( isFullscreen --> doFullFloat ) <+> manageDocks <+> myManageHook <+> manageHook desktopConfig
           , startupHook        = myStartupHook
-          , layoutHook         = myLayout
+          , layoutHook         = lessBorders OnlyFloat $ myLayout
           , handleEventHook    = handleEventHook desktopConfig <+> myHandleEventHook
           , workspaces         = myWorkspaces
           , borderWidth        = myBorderWidth

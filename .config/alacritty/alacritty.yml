@@ -32,6 +32,8 @@ window:
   #   - SimpleFullscreen
   startup_mode: Windowed
 
+  opacity: 0.93
+
 scrolling:
   history: 9999
 
@@ -41,13 +43,13 @@ scrolling:
 
 font:
   normal:
-    family: Ubuntu Mono
+    family: Mononoki Nerd Font
 
   bold:
-    family: Ubuntu Mono
+    family: Mononoki Nerd Font
 
   italic:
-    family: Ubuntu Mono
+    family: Mononoki Nerd Font
 
   size: 11
 
@@ -155,7 +157,6 @@ schemes:
 
 colors: *kaolin-aurora
 
-background_opacity: 0.95
 
 # Key bindings
 #
