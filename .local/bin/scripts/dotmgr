@@ -50,4 +50,4 @@ while [ $# -gt 0 ]; do
   shift
 done
 
-backup $BACKUP $MESSAGE
+backup "$BACKUP" "$MESSAGE"
