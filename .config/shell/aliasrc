@@ -48,15 +48,10 @@ alias k="kubectl"
 alias jctl="journalctl -p 3 -xb"
 
 alias pmf="cd ~/.local/pmf"
+alias btr="cd /var/lib/transmission/Downloads"
 alias scripts="cd ~/.local/bin/scripts"
 alias zdt="cd ~/.config/zsh"
 alias dwmc="cd ~/.config/dwm"
 alias work="cd ~/.local/photomath"
-
-alias app-test-us='gcloud config set project photomath-app-test && gcloud container clusters get-credentials gke-app-us-test --region us-central1'
-alias app-test-eu='gcloud config set project photomath-app-test && gcloud container clusters get-credentials gke-app-eu-test --region europe-west3'
-alias app-dev-eu='gcloud config set project photomath-app-dev && gcloud container clusters get-credentials gke-app-eu-dev --region europe-west3'
-alias app-prod-eu='gcloud config set project photomath-app-prod && gcloud container clusters get-credentials gke-app-eu-prod --region europe-west3'
-alias app-prod-us='gcloud config set project photomath-app-prod && gcloud container clusters get-credentials gke-app-us-prod --region us-central1'
 
 alias ..='cd ..'

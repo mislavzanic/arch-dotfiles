@@ -9,9 +9,8 @@ get_aur_helper() {
 
 
 dwd_packages() {
-    curl -fLO "https://raw.githubusercontent.com/mislavzanic/dotfiles/master/.local/bin/scripts/install/packages/$1.install"
-    [ "$1" -eq "pacman" ] && sudo pacman -S $(tr '\n' ' ' < "$1.install") || paru -S $(tr '\n' ' ' < aur.install)
-    rm "$1.install"
+    packages=$(yq ".$1[]" packages.yaml | sed 's/\"//g' | tr '\n' ' ')
+    [ "$1" -eq "pacman" ] && sudo pacman -S $packages || paru -S $packages
 }
 
 config_dots() {
@@ -39,6 +38,7 @@ EOF
 install_packages() {
     mkdir .config && mkdir .local
     [ $(pacman -Q | grep paru | wc -l) -gt '0' ] || get_aur_helper
+    curl -fLO "https://raw.githubusercontent.com/mislavzanic/dotfiles/master/.local/bin/scripts/install/packages.yaml"
     dwd_packages "pacman"
     dwd_packages "aur"
     config_dots

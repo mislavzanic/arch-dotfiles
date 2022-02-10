@@ -3,6 +3,7 @@
 module Hooks.StatusBar where
 
 import Custom.Vars
+import Custom.Colors.KaolinAurora
 
 import XMonad
 

@@ -13,6 +13,7 @@ GLHF
 
 -- custom modules
 import Custom.Vars
+import Custom.Colors.KaolinAurora
 import Custom.Keys
 import Custom.Layouts
 import Hooks.StartupHook
@@ -55,7 +56,7 @@ main = xmonad
         myConfig = desktopConfig
           { manageHook         = ( isFullscreen --> doFullFloat ) <+> manageDocks <+> myManageHook <+> manageHook desktopConfig
           , startupHook        = myStartupHook
-          , layoutHook         = lessBorders OnlyFloat $ myLayout
+          , layoutHook         = lessBorders OnlyScreenFloat $ myLayout
           , handleEventHook    = handleEventHook desktopConfig <+> myHandleEventHook
           , workspaces         = myWorkspaces
           , borderWidth        = myBorderWidth

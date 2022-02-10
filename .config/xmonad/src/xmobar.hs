@@ -14,6 +14,7 @@
 
 import Xmobar
 
+import Custom.Colors.KaolinAurora
 import Custom.Vars
 
 import System.Environment (getArgs)

@@ -48,7 +48,7 @@
  '(org-fontify-todo-headline nil)
  '(org-src-block-faces 'nil)
  '(package-selected-packages
-   '(seti-theme subatomic256-theme subatomic-theme badger-theme leuven-theme abyss-theme modus-operandi-theme modus-vivendi-theme dired-icon smart-tabs-mode haskell-emacs lsp-haskell omnisharp cmake-ide atom-one-dark-theme eshell-git-prompt all-the-icons-ibuffer all-the-icons-dired all-the-icons pdf-tools one-themes spacemacs-theme password-store kaolin-themes dashboard ace-window fzf lsp-python-ms lsp-pyright ccls rust-mode))
+   '(ivy-posframe seti-theme subatomic256-theme subatomic-theme badger-theme leuven-theme abyss-theme modus-operandi-theme modus-vivendi-theme dired-icon smart-tabs-mode haskell-emacs lsp-haskell omnisharp cmake-ide atom-one-dark-theme eshell-git-prompt all-the-icons-ibuffer all-the-icons-dired all-the-icons pdf-tools one-themes spacemacs-theme password-store kaolin-themes dashboard ace-window fzf lsp-python-ms lsp-pyright ccls rust-mode))
  '(pdf-view-midnight-colors (cons "#d4d4d4" "#191919"))
  '(rustic-ansi-faces
    ["#191919" "#FF5E5E" "#468800" "#E9FDAC" "#8CDAFF" "#C586C0" "#85DDFF" "#d4d4d4"])

@@ -90,7 +90,7 @@ format_disk() {
 }
 
 install_base() {
-    packages='base linux linux-firmware base-devel vim git'
+    packages='base linux linux-firmware base-devel vim git yq'
     [ $DOAS -eq '1' ] && packages="$packages doas"
     cmd=''
     case $OS in

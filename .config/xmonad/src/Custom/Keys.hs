@@ -131,8 +131,10 @@ appKeys =
   , ("M1-w", spawn "virt-manager")
   , ("M1-s", spawn "screen sel")
   , ("M1-l", spawn muhLock)
-  , ("M1-t", spawn "thunderbird")
+  , ("M1-m", spawn "thunderbird")
+  , ("M1-t", spawn $ myTerminal <+> " -e tremc")
   , ("M1-f", spawn "Thunar")
+  , ("M1-g", spawn "steam")
   , ("M1-S-n", spawn "nvidia-settings")
   , ("M1-S-p", spawn "toggle_comp.sh")
 
@@ -146,6 +148,7 @@ appKeys =
 scratchPadKeys =
   [ ("M-C-<Return>", namedScratchpadAction myScratchPads "terminal")
   , ("M-C-s", namedScratchpadAction myScratchPads "spotify")
+  , ("M-C-t", namedScratchpadAction myScratchPads "tremc")
   , ("M-C-d", namedScratchpadAction myScratchPads "discord")
   ]
 

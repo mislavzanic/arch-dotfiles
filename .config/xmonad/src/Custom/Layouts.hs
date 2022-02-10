@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleContexts #-}
 module Custom.Layouts where
 
-import Custom.Vars
+import Custom.Colors.KaolinAurora
 
 import XMonad hiding ( (|||) ) -- jump to layout
 import XMonad.Layout.LayoutCombinators ( (|||) ) -- jump to layout

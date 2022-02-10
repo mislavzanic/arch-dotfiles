@@ -13,6 +13,7 @@ module Custom.Prompt where
 
 
 import Custom.Vars
+import Custom.Colors.KaolinAurora
 import Custom.Utils
 
  -- imports
