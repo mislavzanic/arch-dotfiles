@@ -28,7 +28,7 @@ backup_sys_dots() {
 }
 
 backup_install() {
-    [ -d $HOME/.local/bin/arch_install ] && backup_git $HOME/.local/bin/arch_install $2 || {git clone git@github.com:mislavzanic/arch_install.git && exit}
+    [ -d $HOME/.local/bin/arch_install ] && { backup_git $HOME/.local/bin/arch_install "$1" && exit; } || { git clone git@github.com:mislavzanic/arch_install.git && exit; }
 }
 
 backup() {
