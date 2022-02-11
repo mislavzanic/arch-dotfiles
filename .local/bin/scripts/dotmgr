@@ -21,7 +21,7 @@ backup_git() {
 }
 
 move_item() {
-    [ "$1" -eq "file" ] && {
+    [ "$1" == "file" ] && {
         [ -f "$2/$4" ] &&  rm -rf "$3/$4" && cp -r "$2/$4" "$3"
     } || {
         [ -d "$2/$4" ] &&  rm -rf "$3/$4" && cp -r "$2/$4" "$3"
@@ -40,8 +40,8 @@ backup_sys_dots() {
     config_dirs=$(parse_yaml '.backup.config[]' "$HOME/.config/config.yaml")
     for item in $config_dirs; do
         item_type="dir"
-        [ $item -eq "config.yaml" ] && item_type="file"
-        move_item  "$item_type" "${XDG_CONFIG_HOME:-$HOME/.config}" "$HOME/dotfiles/.config" "$item"
+        [ $item == "config.yaml" ] && item_type="file"
+        move_item "$item_type" "${XDG_CONFIG_HOME:-$HOME/.config}" "$HOME/dotfiles/.config" "$item"
     done
     clean_xmonad
     backup_git $HOME/dotfiles "$1"
