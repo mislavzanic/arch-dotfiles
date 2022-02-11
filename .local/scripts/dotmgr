@@ -1,5 +1,10 @@
 #!/bin/bash
 
+parse_yaml() {
+    result=($(yq "$1" "$2" | sed 's/\"//g' | tr '\n' ' '))
+    echo "${result[@]}"
+}
+
 clean_xmonad() {
     cd $HOME/dotfiles/.config/xmonad
     rm -rf .stack-work
@@ -15,11 +20,18 @@ backup_git() {
     git push origin master
 }
 
+move_dir() {
+    [ -d "$1/$3" ] &&  rm -rf "$2/$3" && cp -r "$1/$3" "$2"
+}
+
 backup_sys_dots() {
-    git clone git@github.com:mislavzanic/dotfiles.git $HOME/dotfiles
-    [ -d "$HOME/.local/bin/scripts" ] && rm -rf $HOME/dotfiles/.local/bin/scripts && cp -r "$HOME/.local/bin/scripts" "$HOME/dotfiles/.local/bin/"
-    for item in doom slock dunst compton shell x11 zsh nvim xmonad alacritty dmenu sxiv; do
-        [ -d "${XDG_CONFIG_HOME:-$HOME/.config}/$item" ] &&  rm -rf $HOME/dotfiles/.config/$item && cp -r "${XDG_CONFIG_HOME:-$HOME/.config}/$item" $HOME/dotfiles/.config/
+    repo=$(parse_yaml '.backup.repo[]' "$HOME/.config/config.yaml")
+    git clone $repo $HOME/dotfiles
+    local_dirs=$(parse_yaml '.backup.local[]' "$HOME/.config/config.yaml")
+    move_dir "$HOME/.local" "$HOME/dotfiles/.local" "bin/scripts"
+    config_dirs=$(parse_yaml '.backup.config[]' "$HOME/.config/config.yaml")
+    for item in $config_dirs; do
+        move_dir "${XDG_CONFIG_HOME:-$HOME/.config}" "$HOME/dotfiles/.config" "$item"
     done
     clean_xmonad
     backup_git $HOME/dotfiles "$1"
