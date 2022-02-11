@@ -28,7 +28,7 @@ backup_sys_dots() {
     repo=$(parse_yaml '.backup.repo[]' "$HOME/.config/config.yaml")
     git clone $repo $HOME/dotfiles
     local_dirs=$(parse_yaml '.backup.local[]' "$HOME/.config/config.yaml")
-    move_dir "$HOME/.local" "$HOME/dotfiles/.local" "bin/scripts"
+    move_dir "$HOME/.local/bin" "$HOME/dotfiles/.local/bin" "scripts"
     config_dirs=$(parse_yaml '.backup.config[]' "$HOME/.config/config.yaml")
     for item in $config_dirs; do
         move_dir "${XDG_CONFIG_HOME:-$HOME/.config}" "$HOME/dotfiles/.config" "$item"
