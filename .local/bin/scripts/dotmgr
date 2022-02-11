@@ -29,7 +29,7 @@ move_item() {
 }
 
 backup_sys_dots() {
-    repo=$(parse_yaml '.dotfiles.ssh' "$HOME/.config/config.yaml")
+    repo=$(parse_yaml '.git_repos.dotfiles.ssh' "$HOME/.config/config.yaml")
     git clone $repo $HOME/dotfiles
     dirs_to_backup=$(parse_yaml '.backup | keys[]' "$HOME/.config/config.yaml")
     for dir in $dirs_to_backup; do
