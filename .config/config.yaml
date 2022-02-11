@@ -3,7 +3,8 @@ aur_helper: paru
 wm: xmonad
 
 dotfiles:
-  - https://github.com/mislavzanic/dotfiles.git
+  https: https://github.com/mislavzanic/dotfiles.git
+  ssh: git@github.com:mislavzanic/dotfiles.git
 
 dirs:
   - .config
@@ -11,8 +12,6 @@ dirs:
   - .local/share
 
 backup:
-  repo:
-    - git@github.com:mislavzanic/dotfiles.git
   config:
     - alacritty
     - compton
