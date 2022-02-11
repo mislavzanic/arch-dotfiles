@@ -20,18 +20,28 @@ backup_git() {
     git push origin master
 }
 
-move_dir() {
-    [ -d "$1/$3" ] &&  rm -rf "$2/$3" && cp -r "$1/$3" "$2"
+move_item() {
+    [ "$1" -eq "file" ] && {
+        [ -f "$2/$4" ] &&  rm -rf "$3/$4" && cp -r "$2/$4" "$3"
+    } || {
+        [ -d "$2/$4" ] &&  rm -rf "$3/$4" && cp -r "$2/$4" "$3"
+    }
+}
+
+move_file() {
+    [ -f "$1/$3" ] &&  rm -rf "$2/$3" && cp -r "$1/$3" "$2"
 }
 
 backup_sys_dots() {
     repo=$(parse_yaml '.backup.repo[]' "$HOME/.config/config.yaml")
     git clone $repo $HOME/dotfiles
     local_dirs=$(parse_yaml '.backup.local[]' "$HOME/.config/config.yaml")
-    move_dir "$HOME/.local/bin" "$HOME/dotfiles/.local/bin" "scripts"
+    move_item "dir" "$HOME/.local/bin" "$HOME/dotfiles/.local/bin" "scripts"
     config_dirs=$(parse_yaml '.backup.config[]' "$HOME/.config/config.yaml")
     for item in $config_dirs; do
-        move_dir "${XDG_CONFIG_HOME:-$HOME/.config}" "$HOME/dotfiles/.config" "$item"
+        item_type="dir"
+        [ $item -eq "config.yaml" ] && item_type="file"
+        move_item  "$item_type" "${XDG_CONFIG_HOME:-$HOME/.config}" "$HOME/dotfiles/.config" "$item"
     done
     clean_xmonad
     backup_git $HOME/dotfiles "$1"
