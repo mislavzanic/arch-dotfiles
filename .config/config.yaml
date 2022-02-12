@@ -1,5 +1,17 @@
-aur_helper: paru
+os: arch
+init_system: systemd
+hostname: archAMD
+disk: /dev/nvme0n1
 
+users:
+  mislav:
+    - wheel
+    - audio
+    - video
+    - storage
+    - transmission
+
+aur_helper: paru
 wm: xmonad
 
 git_repos:
@@ -23,6 +35,7 @@ backup:
     - nvim
     - shell
     - slock
+    - sxiv
     - x11
     - xmonad
     - zathura
@@ -31,6 +44,21 @@ backup:
     - bin/scripts
 
 packages:
+  base:
+    - base
+    - linux
+    - linux-firmware
+    - base-devel
+    - vim
+    - git
+    - yq
+    - grub
+    - dosfstools
+    - os-prober
+    - mtools
+    - efibootmgr
+    - networkmanager
+    - doas
   pacman:
     - alacritty
     - clang
@@ -85,10 +113,9 @@ packages:
     - zip
     - zathura
     - zathura-pdf-mupdf
-    - zsh-autosuggestions
     - zsh
+    - zsh-autosuggestions
     - zsh-syntax-highlighting
-
   aur:
     - brave-bin
     - gtk-theme-arc-gruvbox-git
