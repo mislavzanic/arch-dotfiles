@@ -13,8 +13,8 @@ GLHF
 
 -- custom modules
 import Custom.Vars
-import Custom.Colors.KaolinAurora
 import Custom.Keys
+import Custom.Colors.KaolinAurora
 import Custom.Layouts
 import Hooks.StartupHook
 import Hooks.ManageHook
@@ -62,8 +62,8 @@ main = xmonad
           , borderWidth        = myBorderWidth
           , terminal           = myTerminal
           , modMask            = myModMask
-          , normalBorderColor  = myNormalBorderColor
-          , focusedBorderColor = myFocusedBorderColor
+          , normalBorderColor  = color1
+          , focusedBorderColor = border
           , logHook            = workspaceHistoryHookExclude [scratchpadWorkspaceTag]
                                  -- Remember where we've been.
                                  <> masterHistoryHook -- Remember where we've been² (for 'swapPromote').

@@ -10,6 +10,7 @@ users:
     - video
     - storage
     - transmission
+    - libvirt
 
 aur_helper: paru
 wm: xmonad

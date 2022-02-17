@@ -111,12 +111,12 @@ cutWords i = renamed [CutWordsLeft i]
 tabTheme :: Theme
 tabTheme = def { decoHeight = 4
                , decoWidth = maxBound
-               , activeColor = myFocusedBorderColor
+               , activeColor = border
                , urgentColor = myppUrgent
                , activeBorderWidth = 0
                , urgentBorderWidth = 0
                , inactiveColor = myNormalBorderColor
                , inactiveBorderWidth = 0
-               , activeBorderColor = myFocusedBorderColor
+               , activeBorderColor = border
                , inactiveBorderColor = myNormalBorderColor
                }
