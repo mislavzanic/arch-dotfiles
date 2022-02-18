@@ -38,6 +38,7 @@ link_files() {
 }
 
 symlink() {
+    echo 'ne'
     link_files 'config'
     link_files 'local'
 }
