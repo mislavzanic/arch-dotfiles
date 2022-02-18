@@ -20,58 +20,38 @@ backup_git() {
     git push origin master
 }
 
-move_item() {
-    if [ -d "$1" ]; then
-        rm -rf "$2" && cp -r "$1" "$2"
-    elif [ -f "$1" ]; then
-        rm -rf "$2" && cp -r "$1" "$2"
-    fi
-}
-
 backup_sys_dots() {
-    repo=$(parse_yaml '.git_repos.dotfiles.ssh' "$HOME/.config/config.yaml")
-    git clone $repo $HOME/dotfiles
-    dirs_to_backup=$(parse_yaml '.backup | keys[]' "$HOME/.config/config.yaml")
-    for dir in $dirs_to_backup; do
-        dirs=$(parse_yaml ".backup.$dir[]" "$HOME/.config/config.yaml")
-        if [ $dir == 'local' ] || [ $dir == 'config' ]; then
-             dir=".$dir"
-        fi
-        for item in $dirs; do
-            move_item "$HOME/$dir/$item" "$HOME/dotfiles/$dir/$item"
-        done
-    done
+    message="$1"
     clean_xmonad
-    backup_git $HOME/dotfiles "$1"
-    cd $HOME
-    rm -rf $HOME/dotfiles
-}
-
-backup_install() {
-    [ -d $HOME/.local/bin/arch_install ] && {
-        backup_git $HOME/.local/bin/arch_install "$1" && exit;
-    } || {
-        git clone git@github.com:mislavzanic/arch_install.git && exit;
-    }
+    backup_git $HOME/.config/.dotfiles "$message"
 }
 
 backup() {
     [ "$1" == 'dots' ] && backup_sys_dots "$2"
-    [ "$1" == 'install' ] && backup_install "$2"
+}
+
+link_files() {
+    items=$(parse_yaml ".symlink.$1[]" $HOME/.config/.dotfiles/config.yaml)
+    for item in $items; do
+        ln -sf "$HOME/.config/.dotfiles/.$1/$item" "$HOME/.$1/$item"
+    done
+}
+
+symlink() {
+    link_files 'config'
+    link_files 'local'
 }
 
 BACKUP=''
 MESSAGE='backup'
-
+SYMLINK='0'
 while [ $# -gt 0 ]; do
-
    if [[ $1 == *"--"* ]]; then
         param="${1/--/}"
         [ $param == 'backup' ] && BACKUP="$2"
         [ $param == 'message' ] && MESSAGE="$2"
+        [ $param == 'symlink' ] && SYMLINK="1"
    fi
-
-  shift
+   shift
 done
-
-backup "$BACKUP" "$MESSAGE"
+[ $SYMLINK -eq '1' ] && symlink || backup "$BACKUP" "$MESSAGE"

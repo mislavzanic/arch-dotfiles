@@ -25,11 +25,10 @@ dirs:
   - .local/bin
   - .local/share
 
-backup:
+symlink:
   config:
     - alacritty
     - compton
-    - config.yaml
     - dmenu
     - doom
     - dunst

@@ -14,21 +14,16 @@ install_xmonad() {
     chmod a+x build && ./build
 }
 
-mv_config() {
-    cfg=($(ls "$HOME/dotfiles/$1"))
-    [ -f "$HOME/$1" ] || mkdir "$HOME/$1"
-    for item in "${cfg[@]}"; do
-        mv $item $HOME/$1/
+link_files() {
+    dot_dirs=$(parse_yaml ".symlink.$1[]" "$HOME/.config/.dotfiles/config.yaml")
+    for dir in $dot_dirs; do
+        [ -d "$HOME/.$1/$dir" ] && rm -rf "$HOME/.$1/$dir"
+        ln -sf "$HOME/.config/.dotfiles/.$1/$dir" "$HOME/.$1/$dir"
     done
 }
 
-
-dot_dirs=$(parse_yaml ".dirs[]" 'config.yaml')
-for dir in $dot_dirs; do
-    [ -d "$HOME/$dir" ] || mkdir -p "$HOME/$dir"
-    mv_config "$dir"
-done
-
-wm=$(parse_yaml '.wm' 'config.yaml')
-[ "$wm" == 'xmonad' ] && install_xmonad
-[ "$wm" == 'qtile' ] && install_qtile
+link_files 'config'
+link_files 'local'
+#wm=$(parse_yaml '.wm' 'config.yaml')
+#[ "$wm" == 'xmonad' ] && install_xmonad
+#[ "$wm" == 'qtile' ] && install_qtile
