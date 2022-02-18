@@ -6,7 +6,7 @@ parse_yaml() {
 }
 
 install_qtile() {
-    sudo pacman -S qtile
+    [ $(pacman -Q | grep 'qtile' | wc -l) -eq '1' ] || sudo pacman -S qtile
 }
 
 install_xmonad() {
@@ -24,6 +24,7 @@ link_files() {
 
 link_files 'config'
 link_files 'local'
-#wm=$(parse_yaml '.wm' 'config.yaml')
-#[ "$wm" == 'xmonad' ] && install_xmonad
-#[ "$wm" == 'qtile' ] && install_qtile
+wm=$(parse_yaml '.wm' 'config.yaml')
+[ "$wm" == 'xmonad' ] && install_xmonad
+[ "$wm" == 'qtile' ] && install_qtile
+#nvim --headless +PlugInstall +qall

@@ -2,7 +2,6 @@ os: arch
 init_system: systemd
 hostname: archAMD
 disk: /dev/nvme0n1
-
 users:
   mislav:
     - wheel
@@ -11,20 +10,16 @@ users:
     - storage
     - transmission
     - libvirt
-
 aur_helper: paru
 wm: xmonad
-
 git_repos:
   dotfiles:
     https: https://github.com/mislavzanic/dotfiles.git
     ssh: git@github.com:mislavzanic/dotfiles.git
-
 dirs:
   - .config
   - .local/bin
   - .local/share
-
 symlink:
   config:
     - alacritty
@@ -42,7 +37,6 @@ symlink:
     - zsh
   local:
     - bin/scripts
-
 packages:
   base:
     - base
