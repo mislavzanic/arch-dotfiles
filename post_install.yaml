@@ -1,0 +1,4 @@
+git_repos:
+  dotfiles:
+    https: https://github.com/mislavzanic/dotfiles.git
+    ssh: git@github.com:mislavzanic/dotfiles.git

@@ -1,15 +1,3 @@
-os: arch
-init_system: systemd
-hostname: archAMD
-disk: /dev/nvme0n1
-users:
-  mislav:
-    - wheel
-    - audio
-    - video
-    - storage
-    - transmission
-    - libvirt
 aur_helper: paru
 wm: xmonad
 git_repos:
@@ -38,21 +26,6 @@ symlink:
   local:
     - bin/scripts
 packages:
-  base:
-    - base
-    - linux
-    - linux-firmware
-    - base-devel
-    - vim
-    - git
-    - yq
-    - grub
-    - dosfstools
-    - os-prober
-    - mtools
-    - efibootmgr
-    - networkmanager
-    - doas
   pacman:
     - alacritty
     - clang

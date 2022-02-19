@@ -1,0 +1,27 @@
+os: arch
+init_system: systemd
+hostname: archAMD
+disk: /dev/nvme0n1
+packages:
+    - base
+    - linux
+    - linux-firmware
+    - base-devel
+    - vim
+    - git
+    - yq
+    - grub
+    - dosfstools
+    - os-prober
+    - mtools
+    - efibootmgr
+    - networkmanager
+    - doas
+users:
+  mislav:
+    - wheel
+    - audio
+    - video
+    - storage
+    - transmission
+    - libvirt
