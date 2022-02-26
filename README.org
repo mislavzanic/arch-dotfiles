@@ -1,12 +1,12 @@
-#+TITLE: My Dotfiles
+#+TITLE: My Arch Dotfiles
 
 [[./.local/screenshots/screen.png]]
 
 ** Install
 
 #+BEGIN_SRC shell
-git clone --recurse-submodules https://github.com/mislavzanic/dotfiles.git
-cd dotfiles
+git clone --recurse-submodules https://github.com/mislavzanic/arch-dotfiles.git
+cd arch-dotfiles
 chmod a+x install.sh
 ./install.sh
 #+END_SRC
